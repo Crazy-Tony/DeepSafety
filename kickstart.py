@@ -40,8 +40,12 @@ feature_extractor_model = inception_v3  # @param ["mobilenet_v2", "inception_v3"
 data_root = "./data/Train/"
 
 batch_size = 32
-img_height = 224
-img_width = 224
+# Decrease img_size to prevent an out of memory error.
+img_height = 112
+img_width = 112
+# Requires more than 25 GB RAM
+# img_height = 224
+# img_width = 224
 
 train_ds = tf.keras.utils.image_dataset_from_directory(
   data_root,
